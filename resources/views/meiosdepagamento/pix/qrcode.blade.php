@@ -102,3 +102,4 @@ curl_close($curl);
 $status = $dataget['status'];
 
 print_r($responseget);    
+echo md5($txid);

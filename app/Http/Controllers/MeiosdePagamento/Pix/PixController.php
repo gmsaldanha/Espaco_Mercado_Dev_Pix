@@ -28,12 +28,15 @@ $contas = DB::table('contas_models')->select('CodigoPix','Titular','Municipio','
            
      $vlvalor = $request->input('variavelvalor');
      $mensagem = $request->input('mensagem');
-     $cpf = $request->input('variavelcpf');
-     $nome = $request->input('variavelnome');
+
+
+     //mudando aqui para pegar o resultado bb teste
+     $cpf = '12345678909';//$request->input('variavelcpf');
+     $nome = 'Francisco da Silva';//$request->input('variavelnome');
   
         $pix = new PixModel();
        //abaixo estou trocando a minha chave pix por uma exemplo do bb
-        $pix->setPixKey('28779295827');//$contas->CodigoPix);
+        $pix->setPixKey('7f6844d0-de89-47e5-9ef7-e0a35a681615');//28779295827');//$contas->CodigoPix);
         $pix->setDescription($mensagem);
         $pix->setMerchantName($contas->Titular);
         $pix->setMerchantCity($contas->Municipio);
