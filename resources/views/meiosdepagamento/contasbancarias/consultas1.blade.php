@@ -19,6 +19,7 @@ $status = "status_example"; // string |
 $paginacao_pagina_atual = 0; // int | 
 $paginacao_itens_por_pagina = 100; // int | 
 
+
 try {
     $result = $apiInstance->cobGet($inicio, $fim, $cpf, $cnpj, $location_presente, $status, $paginacao_pagina_atual, $paginacao_itens_por_pagina);
     print_r($result);

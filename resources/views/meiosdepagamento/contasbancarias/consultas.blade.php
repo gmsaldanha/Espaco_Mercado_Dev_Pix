@@ -21,7 +21,6 @@ $response = json_decode($response, true);
 $token = $response['access_token'];
 
 
-
 $Putpoint = 'https://api.hm.bb.com.br/pix/v1/cob/?gw-dev-app-key=d27b67790dffab20136de17d50050256b991a5b3';
 $Authorization ='Authorization: Bearer ';
 $Authorization = $Authorization .$token ;

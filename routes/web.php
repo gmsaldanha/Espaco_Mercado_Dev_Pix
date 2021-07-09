@@ -37,8 +37,6 @@ Route::get('variavelvalor', 'App\Http\Controllers\MeiosdePagamento\Pix\PixContro
 
 Route::get('consultastoken', 'App\Http\Controllers\MeiosdePagamento\Pix\PixController@endpointspix')->name('consultastoken');
 
-
-
 Route::get('bb', 'App\Http\Controllers\MeiosdePagamento\MeiospagController@bb')->name('bb');
 Route::get('cc', 'App\Http\Controllers\MeiosdePagamento\MeiospagController@cc')->name('cc');
 Route::get('cd', 'App\Http\Controllers\MeiosdePagamento\MeiospagController@cd')->name('cd');

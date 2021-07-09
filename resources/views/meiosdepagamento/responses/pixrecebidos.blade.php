@@ -43,7 +43,6 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTPHEADER => array(
     $AuthorizationGet   ),
 ));
-
 $responseget = curl_exec($curl);
 $data = json_decode(curl_exec($curl)); 
 curl_close($curl);
@@ -63,6 +62,7 @@ foreach ( $convjson as $vai )
     'cpf' => $pagador->cpf,
     'txid' => $vai->txid,
   ];
+
 
   dd($attributos);*/
 #print_r($vai->endToEndId);

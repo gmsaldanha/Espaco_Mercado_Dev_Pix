@@ -46,6 +46,7 @@
         </form>
 
         </td>
+        
         <td>  
             <form method="get" action="{{ route('delcontas', ['id' => $conta->id]) }}" style="display: inline" onsubmit="return confirm('Deseja excluir este registro?');" >
             <!--@csrf-->

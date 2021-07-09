@@ -58,8 +58,7 @@ curl_setopt_array($curl, array(
 }',
   CURLOPT_HTTPHEADER => array(
     $AuthorizationPut  ,
-        'Content-Type: application/json'
-  ),
+        'Content-Type: application/json'  ),
 ));
 $responseput = curl_exec($curl);
 $data = json_decode(curl_exec($curl),true); 

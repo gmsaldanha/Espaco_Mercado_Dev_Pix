@@ -49,7 +49,6 @@ function mp(){
           <label for="variavelvalor">Referencia</label>
           <input type="text" class="form-control" name="mensagem" id="mens" >
        </div>
-
 </div>
 
 <div class="form-row">

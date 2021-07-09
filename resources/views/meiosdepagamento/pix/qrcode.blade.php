@@ -101,5 +101,4 @@ $dataget = json_decode(curl_exec($curl),true);
 curl_close($curl);
 $status = $dataget['status'];
 
-
 print_r($responseget);    

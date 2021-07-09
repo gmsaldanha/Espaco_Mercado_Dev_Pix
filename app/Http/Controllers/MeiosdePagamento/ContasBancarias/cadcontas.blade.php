@@ -11,7 +11,6 @@
     <table class="table table-bordered table-striped table-sm">
         <thead>
       <tr>
-
      
 <form action="savecontas" method="get">
       

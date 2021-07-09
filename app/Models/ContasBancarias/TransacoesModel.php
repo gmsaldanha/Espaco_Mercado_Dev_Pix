@@ -29,7 +29,6 @@ class TransacoesModel extends Model
 'Pagadornome',
 'Horario',
 'Rtrid',
-
         'Status',
         'Data_trans',
         'Data_rec'

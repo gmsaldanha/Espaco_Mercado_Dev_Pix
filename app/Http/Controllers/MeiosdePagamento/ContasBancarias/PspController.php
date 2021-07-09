@@ -94,8 +94,7 @@ class PspController extends Controller
        'Statusoperacao' => $request->input('status'),  
        'Data_trans' => date('Y-m-d H:i:s'),
        'Data_rec' => date('Y-m-d H:i:s')
-
-        
+       
     ]);
     return redirect()->route('meiospagindex');
     }

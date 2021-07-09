@@ -20,7 +20,6 @@ class ContasModel extends Model
         'Uf',
         'TxId',
         'Padrao',
-        'Data'
-    
+        'Data'    
     ];
 }

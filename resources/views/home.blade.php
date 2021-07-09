@@ -9,10 +9,7 @@
     <a href="meiospag" class="btn btn-primary">Escolher forma de pagamento</a>
     <a href="contas" class="btn btn-primary">Gerencias Contas</a>
   
-
-
-
-  
+ 
   
 
        <!-- abaixo usando o nome alias que criei no webroute 

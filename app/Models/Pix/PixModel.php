@@ -188,7 +188,6 @@ class PixModel extends Model
             $this->getValue(self::ID_MERCHANT_CITY, $this->merchantCity) .
             $this->getAdditionalDataFieldTemplate();
 
-
         return $payload.$this->getCRC16($payload);
 
         

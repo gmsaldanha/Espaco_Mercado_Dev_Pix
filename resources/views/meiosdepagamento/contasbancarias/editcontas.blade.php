@@ -20,6 +20,7 @@
           
           <input type="text" class="form-control" name="numbanco" id="numbanco" value="{{ $contas->NumBanco }}">
         </div>
+        
 
         <div class="form-group col-md-2">
           <label for="agencia">Agencia</label>

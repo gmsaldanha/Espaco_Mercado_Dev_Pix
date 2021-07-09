@@ -69,7 +69,6 @@ $auth_data = http_build_query([
     'grant_type' 	=> $psps->grant_type,
     'scope' 		=> $psps->scope
 ]);
-
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $endpoint);
 curl_setopt( $ch, CURLOPT_HTTPHEADER, [

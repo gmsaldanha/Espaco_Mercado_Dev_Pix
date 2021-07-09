@@ -88,7 +88,6 @@ $this->_api_context->setConfig($paypal_conf['settings']);
 public function mp(){
     return view('meiosdepagamento.mp.mp');        
 }
-
 public function py(){
     return view('meiosdepagamento.py.py');        
 }

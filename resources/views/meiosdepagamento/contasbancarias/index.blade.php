@@ -36,6 +36,7 @@
             <button class="btn btn-danger btn-sm">Excluir</button>
         </form>
           </td>
+          
       </tr>
       @empty
       <tr>

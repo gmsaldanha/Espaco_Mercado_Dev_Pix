@@ -15,7 +15,6 @@ class ContasController extends Controller
         
       $contas = ContasModel::all();
     return view('meiosdepagamento/contasbancarias.contas', compact('contas'));
- 
   
   }    
   

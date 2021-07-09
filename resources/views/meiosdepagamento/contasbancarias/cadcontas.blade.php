@@ -47,6 +47,8 @@
           <input type="text" class="form-control" name="conta" id="conta" >
         </div>
 
+
+        
         <div class="form-group col-md-4">
           <label for="pix">Pix</label>
           

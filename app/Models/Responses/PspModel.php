@@ -16,8 +16,6 @@ class PspModel extends Model
         'scope',
         'Content_Type',
         'Authorization'
-      
-
-    
+          
     ];
 }
