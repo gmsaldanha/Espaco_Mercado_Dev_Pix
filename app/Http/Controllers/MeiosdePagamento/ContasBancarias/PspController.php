@@ -12,12 +12,12 @@ use App\Models\ContasBancarias\TransacoesModel;
 class PspController extends Controller
 {
 
-    public function index()
-    {
+    public function index(){   
+        
         $psps = PspModel::all();
-    return view('meiosdepagamento/contasbancarias.psps', compact('psps'));
-     
-    }
+      return view('meiosdepagamento/contasbancarias.listpsps', compact('psps'));
+    
+    }  
 
     public function create()
     {
@@ -50,23 +50,45 @@ class PspController extends Controller
     }
 
     public function edit($id)
-    {
-        //
-    }
+    {    $psps = PspModel::find($id);
+ 
+        return isset($psps) 
+            ? view('meiosdepagamento/contasbancarias.editpsp', compact(['psps'])) 
+            : redirect()->route('psps');
+        }
 
     public function update(Request $request, $id)
     {
-        $psps = PspModel::where('id', $id)->update($request->except('_token', '_method'));
- 
-        if ($psps) {
-          //  return redirect()->route('cadcontas');
-        }
-    }
+      //dd($request, $id);
+      //dd($psps);
+
+
+        $psps = PspModel::where('id', $id)->first();
+          
+        #'id_banco' =>$contas->id_banco, 
+        $psps->EndPoint = $request->input('endpoint');
+        $psps->PutPoint = $request->input('putpoint');
+        $psps->GetPoint = $request->input('getpoint');
+        $psps->grant_type = $request->input('grant_type');
+        $psps->scope = $request->input('scope');
+        $psps->Content_Type = $request->input('content_Type');
+        $psps->Authorization = $request->input('authorization');
+        $psps->save();   
+            return redirect()->route('contas');
+      }
+      
+
+
+
 
  
     public function destroy($id)
     {
-        //
+      $psps = PspModel::where('id', $id)->delete();
+       
+        if ($psps) {
+            return redirect()->route('psps');
+        }
     }
 
 

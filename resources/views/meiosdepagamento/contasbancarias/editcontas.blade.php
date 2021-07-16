@@ -6,8 +6,9 @@
     
 <div class="card border">
   <div class="card-body">
-  <form action="atucontas" method="get">
-      @csrf
+  <form action="{{ route('atucontas', ['id' => $contas->id]) }}" method="post">
+@method('put')
+@csrf
 
       <div class="form-row">
         <div class="form-group col-md-5">
@@ -121,7 +122,7 @@
      <button type="submit" class="btn btn btn-primary" >Salvar</button>
      <a href="contas" class="btn btn btn-danger" >Cancelar</a>
    
-    <a href="{{route('criapsps' )}}" class="btn btn-primary">Cadastrar PSP</a>
+    <a href="{{route('psps' )}}" class="btn btn-primary">Cadastrar PSP</a>
 
    
     </div>  

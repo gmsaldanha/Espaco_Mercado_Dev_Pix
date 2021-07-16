@@ -84,7 +84,7 @@ $AuthorizationGet ='Authorization: Bearer '.$token ;
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://api.hm.bb.com.br/pix/v1/cob/'.$txid.'?gw-dev-app-key='.$apikey,
+  CURLOPT_URL => 'https://api.bb.com.br/pix/v1/cobqrcode/'.$txid.'?gw-dev-app-key='.$apikey,
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,

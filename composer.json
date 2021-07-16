@@ -29,17 +29,11 @@
         "laravelcollective/html": "^6.2",
         "mpdf/qrcode": "^1.1",
         "simplesoftwareio/simple-qrcode": "^4.2",
-
-
-        "php": ">=5.5",
+         "php": ">=5.5",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^6.2"
-
-
-
-       
+        "guzzlehttp/guzzle": "^6.2"       
     },
 
     "require-dev": {

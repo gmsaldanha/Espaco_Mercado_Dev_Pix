@@ -18,26 +18,7 @@ class ContasController extends Controller
   
   }    
   
-  public function transacoes(){   
-  $transacoes = transacoesModel::all();
-  return view('meiosdepagamento/contasbancarias.transacoes', compact('transacoes'));
-   
-}  
-     
 
-public function consultas(){   
-  $transacoes = transacoesModel::all();
-  return view('meiosdepagamento/contasbancarias.consultas', compact('transacoes'));
-   
-}  
-
-
-
-public function consultastoken(){   
-  $transacoes = transacoesModel::all();
-  return view('meiosdepagamento/contasbancarias.consultastoken', compact('transacoes'));
-   
-} 
     public function create()
     { $contas = ContasModel::all();
       return view('meiosdepagamento/contasbancarias.cadcontas', compact('contas'));
@@ -83,12 +64,27 @@ public function consultastoken(){
 
 
     public function update(Request $request, $id)
-    {
-        $contas = ContasModel::where('id', $id)->update($request->except('_token', '_method'));
- 
-        if ($contas) {
+    {  //dd($request, $id);
+      //dd($psps);
+
+
+        $contas = ContasModel::where('id', $id)->first();
+        $check =   $request->input('padrao'); 
+        if ($check =='on'){ $padrao =1; } else {$padrao=0;}
+        $contas->Banco = $request->input('nomebanco');
+        $contas->NumBanco = $request->input('numbanco');
+        $contas->Agencia = $request->input('agencia');
+        $contas->Conta = $request->input('conta');
+        $contas->CodigoPix = $request->input('pix');
+        $contas->Titular = $request->input('titular');
+        $contas->Logradouro = $request->input('logradouro');
+        $contas->Municipio = $request->input('municipio');   
+        $contas->Uf = $request->input('uf');  
+        $contas->TxId = $request->input('txid');  
+        $contas->Padrao = $padrao;
+        $contas->Data = $request->input('data');
+        $contas->save();   
             return redirect()->route('contas');
-        }
     }
 
     public function destroy($id)
@@ -132,11 +128,29 @@ public function consultastoken(){
         $affected = DB::table('contas_models')
         ->where('id_banco', $contas->id)
         ->update(['Calendario' => 1]);    
-   
-
-
-
      }
+
+     public function transacoes(){   
+      $transacoes = transacoesModel::all();
+      return view('meiosdepagamento/contasbancarias.transacoes', compact('transacoes'));
+       
+    }  
+         
+    
+    public function consultas(){   
+      $transacoes = transacoesModel::all();
+      return view('meiosdepagamento/contasbancarias.consultas', compact('transacoes'));
+       
+    }  
+    
+    
+    
+    public function consultastoken(){   
+      $transacoes = transacoesModel::all();
+      $psps = PspModel::all();
+      return view('meiosdepagamento/contasbancarias.consultastoken', compact(['transacoes','psps']));
+       
+    }      
 
 
 

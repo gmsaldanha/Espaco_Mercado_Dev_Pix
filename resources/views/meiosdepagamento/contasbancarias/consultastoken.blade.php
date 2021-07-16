@@ -27,14 +27,20 @@ curl_close($ch);
 $response = json_decode($response, true);
 $token = $response['access_token'];
 
-
-
+echo "$token";
 $Putpoint = $psps->PutPoint;//'https://api.hm.bb.com.br/pix/v1/cob/?gw-dev-app-key=d27b67790dffab20136de17d50050256b991a5b3';
+$GetPoint = 'contato@espacomercado.com';
+$apikey = '?gw-dev-app-key=';
+
+
+
+
+
 $AuthorizationPut ='Authorization: Bearer '.$token ;
 
 $curl = curl_init();
 curl_setopt_array($curl, array(
-  CURLOPT_URL => $Putpoint,
+  CURLOPT_URL => $Putpoint.$apikey.$GetPoint,
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -64,8 +70,9 @@ $responseput = curl_exec($curl);
 $data = json_decode(curl_exec($curl),true); 
 
 curl_close($curl);
+dd($responseput);
 
-
+/*
 
 $ar = $data;
 $convjson = $ar->pix;

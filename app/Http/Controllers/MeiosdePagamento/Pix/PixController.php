@@ -31,12 +31,12 @@ $contas = DB::table('contas_models')->select('CodigoPix','Titular','Municipio','
 
 
      //mudando aqui para pegar o resultado bb teste
-     $cpf = '12345678909';//$request->input('variavelcpf');
-     $nome = 'Francisco da Silva';//$request->input('variavelnome');
+     $cpf = $request->input('variavelcpf');
+     $nome = $request->input('variavelnome');
   
         $pix = new PixModel();
        //abaixo estou trocando a minha chave pix por uma exemplo do bb
-        $pix->setPixKey('7f6844d0-de89-47e5-9ef7-e0a35a681615');//28779295827');//$contas->CodigoPix);
+        $pix->setPixKey($contas->CodigoPix);
         $pix->setDescription($mensagem);
         $pix->setMerchantName($contas->Titular);
         $pix->setMerchantCity($contas->Municipio);
@@ -61,7 +61,7 @@ $psps = DB::table('psp_models')->select('id_banco','EndPoint','GetPoint',
 
 
 //atenção aqui o $CodigoPix é a nossa chave pix mas no banco brasil ja tem preexistentes de teste
-$Codigopix ='7f6844d0-de89-47e5-9ef7-e0a35a681615';//$contas->CodigoPix;
+$Codigopix =$contas->CodigoPix;
 
 //gerando token
 $endpoint = $psps->EndPoint;//'https://oauth.hm.bb.com.br/oauth/token';
@@ -88,7 +88,7 @@ curl_close($ch);
 $response = json_decode($response, true);
 $token = $response['access_token'];
 
-
+echo "$token";
 //gerando a cobranca
 $Putpoint = $psps->PutPoint;//'https://api.hm.bb.com.br/pix/v1/cob/?gw-dev-app-key=d27b477900ffab60136de17d30050956b9c1a5bc';
 $AuthorizationPut ='Authorization: Bearer '.$token ;
@@ -111,11 +111,15 @@ $json ='{
   "solicitacaoPagador": "'.$mensagem.'"
 }';
 
+//$txid = $txidretorno;
 
+///////////realizando a consulta
+
+$apikey = $psps->GetPoint;
 
 $curl = curl_init();
 curl_setopt_array($curl, array(
-  CURLOPT_URL => $Putpoint,
+  CURLOPT_URL => 'https://api.bb.com.br/pix/v1/cobqrcode/?gw-dev-app-key='.$apikey,
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
