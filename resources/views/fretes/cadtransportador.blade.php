@@ -55,6 +55,24 @@
         </div>
 
 
+       
+        <div class="form-group col-md-12">
+          <label for="Client_Secret">Client_Secret</label>          
+          <input type="text" class="form-control" name="Client_Secret" id="Client_Secret" >
+        </div>
+     
+        <div class="form-group col-md-12">
+          <label for="User_Agent">User_Agent</label>          
+          <input type="text" class="form-control" name="User_Agent" id="User_Agent" >
+        </div>
+   
+        <div class="form-group col-md-12">
+          <label for="Nome_Aplicacao">Nome_Aplicacao</label>          
+          <input type="text" class="form-control" name="Nome_Aplicacao" id="Nome_Aplicacao" >
+        </div>
+
+
+
       <div class="form-row">
         <div class="form-group col-md-12">
           <label for="Authorization">Authorization</label>

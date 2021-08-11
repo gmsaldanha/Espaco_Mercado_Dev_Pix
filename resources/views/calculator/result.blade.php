@@ -1,7 +1,19 @@
+
+<script> 
+function bb(){  
+  location.href = "{{ 'meiospag'  }}";
+  document.formulario.submit();
+}     
+</script>
+
 @extends('template.template')
 
 @section('content')
+
+
+
     <h3>Envios disponíveis</h3>
+    
 
     <table class="table table-striped">
         <thead>
@@ -14,10 +26,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($response as $item)
+            @foreach($data as $item)
                 @if( !isset($item->error))
                     <tr>
-                        <th scope="row"><img src="{{ $item->company->picture }}" alt="{{ $item->company->name }}" style="width: 120px;"></th>
+                    <td><div class="radio "><label  ><input name="course" type="radio" onclick="bb()"><th scope="row"><img src="{{ $item->company->picture }}" alt="{{ $item->company->name }}" style="width: 120px;"></th>
+                    </label  ></div></td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->delivery_range->min or '' }} - {{ $item->delivery_range->max or '' }} dias úteis</td>
                         <td>{{ $item->currency }}{{ number_format($item->discount, 2, ',', '.') }}</td>
@@ -28,5 +41,5 @@
         </tbody>
     </table>
 
-    <a href="{{ route('calculator') }}" class="btn btn-primary" >Calcular outro</a>
+    <a href="{{ route('meiospagindex') }}" class="btn btn-primary" >Calcular outro</a>
 @endsection

@@ -1,15 +1,37 @@
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script> 
+$(document).ready(function(){
+setInterval(function() { 
+
+$('#here').load('pixrecebidos?IdTransaction={{$IdTransaction}}'); 
+}, 5000);
+});
+
+</script>
 <!DOCTYPE html>
 <html>
 <head>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 </head>
 <body>
 
-<div class="text-center" style="margin-top: 50px;">
-    <h3>Pagar Pix</h3>
-    {!! QrCode::size(200)->backgroundColor(255, 255, 204)->generate($payload); !!}
 
+
+<div id="qrcode" class="container">
+    <table class="table table-bordered table-striped table-sm" >
+        <thead>
+      <tr>   
+      <td align=center>
+      <h3> Após efetuar o pagamento do QrCode </h3>
+<h3> Aguarde a tela de aprovação</h3>
+    <img src="{{$QrCode}}"  width="300" height="400">
+    </td>
+    </tr>
+        </thead>
+        </table>
 </div>
 
 
@@ -17,28 +39,65 @@
      <div class="form-group col-md2">
     <a href="meiospag" class="btn btn-danger">Cancelar Venda</a>
 </div>
-
-<div class="form-group col-md-2">
+<div id="principal" class="form-group col-md-2">
     <a href="/" class="btn btn-primary">Principal</a>
     </div>
-    <div class="form-group col-md-2">
-    
-   <form action="FinVenda" method="get">    
-   <input type="hidden" name="vlvalor" value="{{$vlvalor}}" >
+    <div id="finvenda" class="form-group col-md-2">    
 
-    <button type="submit" class="btn btn btn-primary" >Finalizar Venda</button>
-     </form>
       </div>
 
 
-      <div class="form-group col-md-2">
-    <a href="pixrecebidos" class="btn btn-primary">Constar Pixs</a>
-    </div>
-  </div>
+
+
+
+
+
+
+
+
+<div id="here">
+<iframe name="InlineFrame1" id="InlineFrame1" width="98%" height="96%" src="pixrecebidos" frameborder="0" target="_parent" align="left" border="0" scrolling="yes" marginwidth="1" marginheight="1"></iframe>
+<?php 
+
+
+
+
+
+?>
+  <?php/*
+}
+
+//{"ResponseDetail":{"IdTransaction":16824733,"Status":"3","Message":"Autorizado
+
+
+
+
+?>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
     </ol>
 
 <?php
-
+/*
 //gerando token
 $endpoint = $psps->EndPoint;//'https://oauth.hm.bb.com.br/oauth/token';
 $Content_Type = 'Content-Type:'.$psps->Content_Type;
@@ -68,7 +127,7 @@ $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 $response = json_decode($response, true);
 //$data = json_decode($response);
-$token = $response['access_token'];
+/*$token = $response['access_token'];
 
 
 $txid = $txidretorno;
@@ -103,3 +162,9 @@ $status = $dataget['status'];
 
 print_r($responseget);    
 echo md5($txid);
+*/
+
+?>
+
+</body>
+</html>

@@ -17,13 +17,16 @@ Schema::create('transportadora_models', function (Blueprint $table) {
     $table->increments('id');
     $table->string('Transportadora', 100);  
     $table->mediumText('Token');
-    $table->mediumText('Client_id');
-    $table->mediumText('Authorization');
-    $table->string('Url_Redir');
-    $table->string('CallBack');
-    $table->string('Url_transp');
-    $table->mediumtext('Content_Type');
-    $table->mediumtext('scope');
+    $table->mediumText('Client_id')->nullable();
+    $table->string('Client_Secret')->nullable();
+    $table->string('User_Agent')->nullable();
+    $table->string('Nome_Aplicacao')->nullable();   
+    $table->mediumText('Authorization')->nullable();
+    $table->string('Url_Redir')->nullable();
+    $table->string('CallBack')->nullable();
+    $table->string('Url_transp')->nullable();
+    $table->mediumtext('Content_Type')->nullable();
+    $table->mediumtext('scope')->nullable();
     $table->timestamps();
    });
 

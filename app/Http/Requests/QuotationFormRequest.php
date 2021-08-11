@@ -24,12 +24,19 @@ class QuotationFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'from_cep' => 'required|size:10',
-            'to_cep' => 'required|size:10',
+            'from_cep' => 'required|size:8',
+            'to_cep' => 'required|size:8',
             'height' => 'required|numeric|digits_between:1,3',
             'width' => 'required|numeric|digits_between:1,3',
             'length' => 'required|numeric|digits_between:1,3',
-            'weight' => 'required'
+            'weight' => 'required',
+
+            'variavelnossocep' => 'required|size:8',
+            'variavelcep' => 'required|size:8',
+            'variavelaltura' => 'required|numeric|digits_between:1,3',
+            'variavellargura' => 'required|numeric|digits_between:1,3',
+            'variavelcomprimento' => 'required|numeric|digits_between:1,3',
+            'variavelpeso' => 'required'
         ];
     }
 
@@ -37,9 +44,9 @@ class QuotationFormRequest extends FormRequest
     {
         return [
             'from_cep.required' => 'O CEP de origem é obrigatório',
-            'from_cep.size' => 'O CEP de origem deve ter 10 dígitos',
+            'from_cep.size' => 'O CEP de origem deve ter 8 dígitos',
             'to_cep.required' => 'O CEP de destino é obrigatório',
-            'to_cep.size' => 'O CEP de destino deve ter 10 dígitos',
+            'to_cep.size' => 'O CEP de destino deve ter 8 dígitos',
             'height.required' => 'A altura é obrigatória',
             'height.numeric' => 'A altura deve ser composta de números',
             'height.digits_between' => 'A altura deve ter de 1 a 3 dígitos',

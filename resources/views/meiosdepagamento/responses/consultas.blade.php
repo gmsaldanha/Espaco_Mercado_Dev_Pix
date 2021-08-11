@@ -7,9 +7,9 @@
 <body>
 
 <div class="text-center" style="margin-top: 50px;">
-    <h3>Boleto</h3>
+    <h3>CONSULTAS</h3>
     <?php
-    $convjson = $response;
+    $convjson = $data;
 foreach ( $convjson as $vai )
 {
   print_r($vai);
@@ -21,7 +21,7 @@ foreach ( $convjson as $vai )
 
      <ol class="breadcrumb">
      <div class="form-group col-md2">
-    <a href="meiospag" class="btn btn-danger">Cancelar Venda</a>
+    <a href="meiospag" class="btn btn-danger">Retornar</a>
 </div>
 
 <div class="form-group col-md-2">

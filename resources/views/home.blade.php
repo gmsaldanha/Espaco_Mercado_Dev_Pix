@@ -4,6 +4,7 @@
 
 @section('content_header')
 
+
      <ol class="breadcrumb">
     <div classs="box">
     <a href="/" class="btn btn-primary">Principal</a>
@@ -50,14 +51,7 @@
      </div>
 </td>
 <td>
-<div class="form-row">
-        <div class="form-group col-md-11">
-     <form action="/api/cnpj/cnpj" method="get">
-     @method('get')
-<button type="submit" class="btn btn btn-primary" >outra cotacao Controller</button>
-     </form>
-     </div>
-      </td>    
+ 
 </table>
 
 
@@ -72,10 +66,40 @@
 
 <td>
     <div class="form-row">
+    <td>
+    <div class="form-row">
         <div class="form-group col-md-11">
   <a href="cotacao" class="btn btn-primary">Cotacao Frete</a> 
+</div>
+</td>
+
+
+<td>
+    <div class="form-row">
+        <div class="form-group col-md-11">
+  <a href="calculator" class="btn btn-primary">Cotacao Frete Api</a> 
+  </div>
+</td>
+ 
+ 
+<td>
+    <div class="form-row">
+        <div class="form-group col-md-11">
+  <a href="fretemelhorenvio" class="btn btn-primary">Api urls melhor envio</a> 
+  </div>
+</td>
+ 
+<td>
+    <div class="form-row">
+        <div class="form-group col-md-11">
+  <a href="callback" class="btn btn-primary">callback</a> 
+ 
+  </div>
+</td>
+  
   </div>  
-    </td> 
+  
+     </td> 
 
    <t/able> 
 

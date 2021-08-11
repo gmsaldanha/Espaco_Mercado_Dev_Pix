@@ -1,14 +1,17 @@
 @extends('adminlte::page')
-
 @section('title', 'Espaço Mercado')
-
 @section('content_header')
-<script> 
-function pix(){  
-  location.href = "{{ 'criacod'  }}";
-  document.formulario.submit();
-}                 
 
+<script> 
+function qrcodedinamicosafe2pay(){  
+  location.href = "{{ 'qrcodedinamicosafe2pay'  }}";
+  document.formulario.submit();
+}    
+
+function consultatransacoes(){  
+  location.href = "{{ 'consultatransacoes'  }}";
+  document.formulario.submit();
+}  
 
 
 function cc(){
@@ -31,12 +34,18 @@ function mp(){
   location.href = "{{ 'mp' }}";
   document.formulario.submit();
 }
+function calcularfrete(){
+  location.href = "{{ 'cotacaofrete' }}";  
+  document.formulario.submit();  
+}
 
 </script>
+
 <h3>Insira um valor no campo abaixo</h3>
 <h3>Isso irá simular uma variavel com R$</h3>
+<form name="test" action="qrcodedinamicosafe2pay" method="get"> 
+@csrf
 
-<form name="formulario" action="{{ route('variavelvalor') }}" method="get">
 <div class="form-row">
 
         <div class="form-group col-md-2">
@@ -64,31 +73,95 @@ function mp(){
        </div>
 
        </div>
-
-
-          <input type="hidden" name="v1" onclick="pix()" >    
-     
       
       </div>
 
-         
-        <div class="form-group col-md-5" >  
-           <a href="/" class="btn btn btn-primary" >Retornar a Tela Principal</a>
-         </div>
-
-         
+</form>
+  <h3>Envios disponíveis</h3>
 
 
+ <!--  informacoes para o frete !-->
+
+<h3>Informacoes do Frete    de um cliente ja cadastrado</h3>
+
+<form onsubmit="cleanMask()" action="{{ route('fretes') }}" method="get">
+        @csrf
+       <div class="form-row">
+
+
+       <div class="form-group col-md-3">
+          <label for="variavelnossocep">Nosso Cep</label>
+          <input type="text" class="form-control" name="variavelnosssocep" >
+       </div>
+       <div class="form-group col-md-3">
+          <label for="variavelcep">Cep Comprador</label>
+          <input type="text" class="form-control" name="variavelcep">
+       </div>   
+
+       <div class="form-group col-md-6">
+          <label for="variavelvlfrete">Valor frete </label>
+          <input type="text" class="form-control" name="variavelvlfrete" >
+       </div>
+     
+
+
+       <h3>Dados do produto ja vindo do banco de dados</h3>
+       <!-- Informacoes do Produto !-->
+       <div class="form-group col-md-8">
+          <label for="variavelproduto">Produto</label>
+          <input type="text" class="form-control" name="variavelproduto" id="variavelproduto" >
+       </div>
+       <div class="row">
+            <div class="form-group col-md-4">
+                <label for="variavelaltura">Altura(cm)</label>
+                <input type="text" class="form-control" name="variavelaltura" id="variavelaltura" >
+            </div>
+            <div class="form-group col-md-4">
+                <label for="variavellargura">Largura(cm)</label>
+                <input type="text" class="form-control" name="variavellargura" id="variavellargura" >
+            </div>
+            <div class="form-group col-md-4">
+                <label for="variavelcomprimento">Comprimento(cm)</label>
+                <input type="text" class="form-control" name="variavelalcomprimento" id="variavelcomprimento" >
+            </div>
+            </div>
+            <div class="row">
+            <div class="form-group col-md-3">
+                <label for="variavelpeso">Peso(kg)</label>
+                <input type="text" class="form-control" name="variavelpeso" id="variavelpeso" >
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="variavelseguro">Valor Segurado</label>
+                <input type="text" class="form-control" name="variavelseguro" id="variavelseguro" >
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="variavelseguro">Calcular</label>
+                <input class="btn btn-primary" type="submit" onclick="calcularfrete()" value="calculafrete">
+            </div>
+        </div>
+
+
+        </div>
+
+        </form>
+
+        <div id="here">
+<iframe name="InlineFrame1" id="InlineFrame1" width="98%" height="96%" src="fretes" frameborder="0" target="_parent" align="left" border="0" scrolling="yes" marginwidth="1" marginheight="1"></iframe>
+</div>
 
 
 
- <h3>Escolha a forma de pagamento</h3>
+        
+<h3>Escolha a forma de pagamento</h3>
 <div class="radio ">
-  <label  ><input name="course" type="radio" onclick="pix()">Pagamento Pix</label>
+  <label  ><input name="course" type="radio" onclick="qrcodedinamicosafe2pay()">Pagamento Pix Safe2Pay</label>
 </div>
 <img src="{!! 'img/pix1.jpg' !!}"   height="125" width="250">
 <br>
 <br>
+
 
 <div class="container">
     <div class="row">
@@ -119,34 +192,51 @@ function mp(){
 <br>
 <br>
 
-<div class="container">
-    <div class="row">
-        <div class="col-6">
-           
-<div class="radio ">
-  <label  ><input name="course" type="radio" onclick="py()">PayPal</label>
-</div>
-<img src="{!! 'img/paypal.jpg' !!}"   height="125" width="250">
-</div>
-<div class="col-6">
+
+
             
-<div class="radio ">
-  <label  ><input name="course" type="radio" onclick="mp()">Mercado Pago</label>
+<form name="test" action="consultatransacoes" method="get"> 
+<div class="row">
+
+<div class="form-group col-md-2">
+          <label for="idconsulta">ID da Consulta</label>
+          <input type="text" class="form-control" name="idconsulta" id="idconsulta" >
+            </div>
+            
+                            
+<button type="submit" class="btn btn btn-primary" >Consultar</button>
 </div>
-<img src="{!! 'img/mercadopago.jpg' !!}"   height="125" width="250">
+</div>  
+
+</form> 
+
+
+<form name="test1" action="consultatodastransacoes" method="get">   
+
+<div class="form-group col-md-3">
+<button type="submit" class="btn btn btn-primary" >Consultar Todas</button>
 </div>
+
+
+
+<div class="form-group col-md-3" >  
+           <a href="/" class="btn btn btn-primary" >Retornar a Tela Principal</a>
+         </div>
+</div>         
+</form> 
+
+
+
+
+
 </div>
 </div>
 
 <br>
 <br>
 
-
-</form>
-
+@endsection
 
 
 
 
-
-@stop

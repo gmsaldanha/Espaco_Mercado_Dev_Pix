@@ -11,7 +11,6 @@
     <body>
 
         <div class="container p-5">
-
             @yield('content')
 
         </div>

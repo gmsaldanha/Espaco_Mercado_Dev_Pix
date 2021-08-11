@@ -1,6 +1,5 @@
 <?PHP
 
-
 $endpoint = $psps->EndPoint;//'https://oauth.hm.bb.com.br/oauth/token';
 $Content_Type = 'Content-Type:'.$psps->Content_Type;
 $Authorization = 'Authorization:'.$psps->Authorization;
@@ -93,6 +92,7 @@ $valor = $data['valor'];
 $solicitacaopagador = $data['solicitacaoPagador'];
 $chave = $data['chave'];
 $payload1 =  '';
+
 
 ?>
    <form action="lancapix" method="get">   
